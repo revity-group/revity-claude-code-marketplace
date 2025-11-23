@@ -56,12 +56,15 @@ argument-hint: [args...]
 
 2. **Execute the command:**
 
+   **Context injection (recommended):** If the command benefits from pre-loaded context, add `!command` inside XML tags before the Instructions section. Common patterns:
+   - Git: `!git status`, `!git diff`, `!git log --oneline -5`
+   - Files: `!ls -la src/`, `!cat package.json`
+   - Environment: `!node --version`, `!which python`
+
+   **Bash execution:** Add specific commands the LLM should run:
+
 \`\`\`bash
-
-# Add specific bash commands here
-
 # Example: git worktree add path/to/worktree branch-name
-
 \`\`\`
 
 3. **Output status:**
