@@ -1,10 +1,10 @@
 ---
-description: Create a conventional commit message and commit staged changes
-allowed-tools: Bash(git status), Bash(git diff), Bash(git log), Bash(git add), Bash(git commit)
+description: Commit staged changes and push to remote
+allowed-tools: Bash(git status), Bash(git diff:*), Bash(git log:*), Bash(git add:*), Bash(git commit:*), Bash(git push:*), Bash(git rev-parse:*), Bash(git remote:*)
 model: claude-haiku-4-5-20251001
 ---
 
-# Conventional Commit
+# Commit and Push
 
 I have gathered information about your changes. Here are the results:
 
@@ -24,7 +24,17 @@ I have gathered information about your changes. Here are the results:
 !`git log --oneline -10`
 </recent_commits>
 
+<current_branch>
+!`git rev-parse --abbrev-ref HEAD`
+</current_branch>
+
+<remote_info>
+!`git remote -v`
+</remote_info>
+
 ## Instructions
+
+### Step 1: Commit (if there are changes)
 
 1. **Analyze the diffs** above to understand what changed.
 2. **Stage files** if needed (skip already staged files, skip files that shouldn't be committed like `.env`).
@@ -45,4 +55,16 @@ I have gathered information about your changes. Here are the results:
    )"
    ```
 
-5. **Show the result** with `git log -1` to confirm.
+### Step 2: Push
+
+5. **Push to remote** using the current branch:
+   ```bash
+   git push origin <current-branch>
+   ```
+
+   If the branch doesn't have an upstream, use:
+   ```bash
+   git push -u origin <current-branch>
+   ```
+
+6. **Show the result** with `git log -1` to confirm the commit, and verify the push succeeded.

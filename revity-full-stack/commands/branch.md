@@ -1,18 +1,11 @@
 ---
 description: Create a new branch from main with conventional commit-style naming
 argument-hint: <task-description>
+allowed-tools: Bash(git status), Bash(git fetch), Bash(git checkout), Bash(git pull), Bash(git branch)
+model: claude-haiku-4-5-20251001
 ---
 
-# /branch
-
-## Purpose
-
-Create a new branch from main with conventional commit-style naming.
-
-## Contract
-
-**Inputs:** `$ARGUMENTS` — task description for the branch
-**Outputs:** `STATUS=<OK|FAIL> BRANCH=<branch-name>`
+# Create Feature Branch
 
 ## Context
 
@@ -28,9 +21,13 @@ Create a new branch from main with conventional commit-style naming.
 !`git branch --sort=-committerdate | head -5`
 </recent_branches>
 
+## Task Description
+
+$ARGUMENTS
+
 ## Instructions
 
-1. **Parse the task description** from `$ARGUMENTS` to understand what needs to be done.
+1. **Parse the task description** above to understand what needs to be done.
 
 2. **Generate a branch name** following conventional commit style:
    ```
@@ -57,11 +54,4 @@ Create a new branch from main with conventional commit-style naming.
 
 5. **Confirm** with `git branch --show-current`.
 
-6. **Output status:**
-   - Print `STATUS=OK BRANCH=<branch-name>` on success
-   - Print `STATUS=FAIL ERROR="message"` on failure
-
-## Constraints
-
-- Idempotent and deterministic
-- Minimal console output (STATUS line only)
+6. **Summarize** the branch name and what task it's for.
