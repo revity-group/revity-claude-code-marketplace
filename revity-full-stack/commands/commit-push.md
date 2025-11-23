@@ -1,8 +1,8 @@
 ---
 description: Commit work based on conventions and optionally push
-argument-hint: [commit message hint]
 allowed-tools: Bash(git *), Bash(ls), Read, Edit, Grep, Glob
-model: haiku
+argument-hint: [commit message hint]
+model: Haiku
 ---
 
 # /commit-push

@@ -1,7 +1,7 @@
 ---
 description: Smart commit - analyze changes and create logical commits
 allowed-tools: Bash(git *), Bash(ls), Read, Edit, Grep, Glob
-model: haiku
+model: Haiku
 ---
 
 Analyze my git state and help me create clean, logical commits.
