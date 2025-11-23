@@ -1,0 +1,13 @@
+{
+  "name": "revity-claude-collection",
+  "owner": {
+    "name": "Alireza Noori"
+  },
+  "plugins": [
+    {
+      "name": "revity-full-stack",
+      "source": "./revity-full-stack",
+      "description": "A Full stack Next.js , react Toolkit "
+    }
+  ]
+}
