@@ -2,6 +2,7 @@
 description: Commit work based on conventions and optionally push
 argument-hint: [commit message hint]
 allowed-tools: Bash(git *), Bash(ls), Read, Edit, Grep, Glob
+model: haiku
 ---
 
 # /commit-push
@@ -14,6 +15,17 @@ Commit work based on conventional commits format and then ask if ready to push.
 
 **Inputs:** `$ARGUMENTS` — optional hint for the commit message
 **Outputs:** `STATUS=<OK|FAIL> [key=value ...]`
+
+## Current State
+
+**Staged changes:**
+!git diff --staged --stat
+
+**Unstaged changes:**
+!git diff --stat
+
+**Untracked files:**
+!git ls-files --others --exclude-standard
 
 ## Instructions
 
@@ -69,16 +81,38 @@ Commit work based on conventional commits format and then ask if ready to push.
 
 ## Example Flow
 
-```
+```text
 User: /commit-push
 
-Claude: I see the following changes:
-- Modified: docs/1-setup.md
-- Modified: docs/_config.yml
-- New: docs/assets/images/revity-logo.svg
+[Context injected automatically]
+Staged changes:
+ docs/1-setup.md | 15 +++++++++
+ docs/_config.yml | 3 +-
+
+Unstaged changes:
+ (none)
+
+Untracked files:
+ docs/assets/images/logo.svg
+
+Claude: I see the following state:
+
+**Staged (ready to commit):**
+- docs/1-setup.md (15 lines added)
+- docs/_config.yml (3 lines changed)
+
+**Untracked:**
+- docs/assets/images/logo.svg
+
+The staged changes are related (both documentation updates).
+Should I also stage the new logo file? (yes/no)
+
+User: yes
+
+Claude: Staged logo.svg. All changes are docs-related.
 
 Proposed commit message:
-  docs: add Revity logo and expand VS Code integration section
+  docs: Add setup guide and logo
 
 Does this look good? (yes/modify/cancel)
 
