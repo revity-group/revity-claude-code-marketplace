@@ -13,10 +13,10 @@ I have gathered information about your worktrees:
 </existing_worktrees>
 
 <main_branch>
-!`git rev-parse --abbrev-ref origin/HEAD`
+!`git rev-parse --abbrev-ref origin/HEAD 2>&1 || true`
 </main_branch>
 
-**Note**: If the main_branch shows `origin/main` or `origin/master`, strip the `origin/` prefix. If the command failed, default to `main`.
+**Note**: If the main_branch shows `origin/main` or `origin/master`, strip the `origin/` prefix. If the output contains an error (e.g., "fatal: ambiguous argument"), default to `main` and suggest the user run `git remote set-head origin --auto` to fix it.
 
 ## Instructions
 
