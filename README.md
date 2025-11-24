@@ -4,7 +4,7 @@ A collection of Claude Code plugins for full-stack development workflows.
 
 ## What is this?
 
-This is a Claude Code plugin marketplace that provides productivity commands for common development tasks like branching, committing, creating PRs, and managing git worktrees—all following conventional commit standards.
+This marketplace provides productivity commands for git workflows, conventional commits, PR creation, and worktree management.
 
 ## Installation
 
@@ -14,36 +14,13 @@ This is a Claude Code plugin marketplace that provides productivity commands for
    ```
    https://github.com/revity-group/revity-claude-code-marketplace
    ```
-4. Browse and install available plugins from the marketplace
+4. Browse and install available plugins
 
-## Available Plugins
+After installation, restart Claude Code to load the new commands.
 
-### revity-full-stack
+## What's Included
 
-A full-stack Next.js and React development toolkit.
-
-**Commands:**
-
-| Command | Description |
-|---------|-------------|
-| `/branch` | Create a new branch from main with conventional naming |
-| `/commit` | Analyze changes and create conventional commits |
-| `/push` | Commit and push changes to remote |
-| `/pr` | Create a GitHub PR with formatted description |
-| `/lint` | Auto-fix linting issues |
-| `/save-history` | Save conversation context to markdown |
-| `/worktree-create` | Create a git worktree for parallel development |
-| `/worktree-cleanup` | Remove completed worktrees safely |
-
-## Usage
-
-After installation, exit claude code and open it again, use any command by typing it in Claude Code:
-
-```
-/revity-full-stack:branch add user authentication
-/revity-full-stack:commit
-/revity-full-stack:pr
-```
+- **revity-full-stack** — Commands and skills for Next.js/React development workflows
 
 ## License
 
