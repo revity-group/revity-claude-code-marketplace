@@ -1,6 +1,6 @@
 ---
 description: Intelligently remove completed worktrees by checking PR status, uncommitted changes and branch merge status
-allowed-tools: Bash(git worktree:*), Bash(git branch:*), Bash(git status:*), Bash(git log:*), Bash(gh pr:*), Bash(rm:*)
+allowed-tools: Bash(git worktree:*), Bash(git branch:*), Bash(git status:*), Bash(git log:*), Bash(git rev-parse:*), Bash(gh pr:*), Bash(rm:*)
 model: claude-haiku-4-5-20251001
 ---
 
@@ -13,8 +13,10 @@ I have gathered information about your worktrees:
 </existing_worktrees>
 
 <main_branch>
-!`git rev-parse --abbrev-ref origin/HEAD 2>/dev/null | sed 's|origin/||' || echo "main"`
+!`git rev-parse --abbrev-ref origin/HEAD`
 </main_branch>
+
+**Note**: If the main_branch shows `origin/main` or `origin/master`, strip the `origin/` prefix. If the command failed, default to `main`.
 
 ## Instructions
 
