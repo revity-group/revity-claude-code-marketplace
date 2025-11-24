@@ -34,8 +34,8 @@ I have gathered information about your repository:
 4. **Create the worktree**:
 
 ```bash
-mkdir -p ../worktrees
-git worktree add "../worktrees/<branch-name>" -b "<branch-name>"
+mkdir -p worktrees
+git worktree add "worktrees/<branch-name>" -b "<branch-name>"
 ```
 
 5. **Show the result** with `git worktree list` to confirm.
