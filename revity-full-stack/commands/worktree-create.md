@@ -1,7 +1,7 @@
 ---
 description: Create a new worktree following conventional commits conventions
 argument-hint: [feature-description]
-allowed-tools: Bash(git worktree:*), Bash(git branch:*), Bash(mkdir:*)
+allowed-tools: Bash(git worktree:*), Bash(git branch:*), Bash(git rev-parse:*), Bash(mkdir:*)
 model: claude-haiku-4-5-20251001
 ---
 
