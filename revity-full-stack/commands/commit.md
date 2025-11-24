@@ -34,6 +34,8 @@ Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`
 
 If changes are unrelated, split into a few logical commits. Otherwise, one commit is fine.
 
+Never mention AI / Claude in the commit message.
+
 ```bash
 git add -A && git commit -m "type(scope): description"
 ```
