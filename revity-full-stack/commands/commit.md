@@ -6,8 +6,6 @@ model: claude-haiku-4-5-20251001
 
 # Conventional Commit
 
-I have gathered information about your changes. Here are the results:
-
 <git_status>
 !`git status`
 </git_status>
@@ -21,28 +19,21 @@ I have gathered information about your changes. Here are the results:
 </unstaged_diff>
 
 <recent_commits>
-!`git log --oneline -10`
+!`git log --oneline -5`
 </recent_commits>
 
 ## Instructions
 
-1. **Analyze the diffs** above to understand what changed.
-2. **Stage files** if needed (skip already staged files, skip files that shouldn't be committed like `.env`).
-3. **Generate a conventional commit message** following this format:
-   ```text
-   <type>(<scope>): <description>
+Stage all changes and commit. Use conventional commit format:
 
-   [optional body]
-   ```
+```text
+<type>(<scope>): <description>
+```
 
-   Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`
+Types: `feat`, `fix`, `docs`, `style`, `refactor`, `perf`, `test`, `build`, `ci`, `chore`
 
-4. **Create the commit** using a HEREDOC for proper formatting:
-   ```bash
-   git commit -m "$(cat <<'EOF'
-   type(scope): description
-   EOF
-   )"
-   ```
+If changes are unrelated, split into a few logical commits. Otherwise, one commit is fine.
 
-5. **Show the result** with `git log -1` to confirm.
+```bash
+git add -A && git commit -m "type(scope): description"
+```
