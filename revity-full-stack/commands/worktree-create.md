@@ -31,11 +31,17 @@ I have gathered information about your repository:
 
 3. **Suggest the branch name** and ask for confirmation.
 
-4. **Create the worktree**:
+4. **Determine the base branch**:
+   - Check if `main` exists, otherwise use `master`
+   - Use `git branch --list main master` to check
+
+5. **Create the worktree from base branch**:
 
 ```bash
 mkdir -p worktrees
-git worktree add "worktrees/<branch-name>" -b "<branch-name>"
+git worktree add "worktrees/<branch-name>" -b "<branch-name>" <base-branch>
 ```
 
-5. **Show the result** with `git worktree list` to confirm.
+This creates the branch from `<base-branch>` (main/master) and avoids the upstream tracking warning.
+
+6. **Show the result** with `git worktree list` to confirm.
