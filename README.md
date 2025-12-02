@@ -4,7 +4,7 @@ A collection of Claude Code plugins for full-stack development workflows.
 
 ## What is this?
 
-This marketplace provides productivity commands for git workflows, conventional commits, PR creation, and worktree management.
+This marketplace provides sharable agentic workflows that are specific to Revity tailored to different use cases and clients and internal use
 
 ## Installation
 
